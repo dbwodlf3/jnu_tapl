@@ -134,12 +134,10 @@ let max bt =
 		match bt with
 		| Empty -> mv
 		| Node (e, btl, btr) ->
-			let larger a b = if a > b then a else b in
-			let larger_e_mv = larger e mv in
+			let larger_e_mv = if e > mv then e else mv in
 			let max_l = m btl larger_e_mv in
 			let max_r = m btr larger_e_mv in
-			let larger_l_r = larger max_l max_r in
-			larger larger_l_r larger_e_mv
+			if max_l > max_r then max_l else max_r
 	in match bt with
 	| Empty -> failwith "max Empty"
 	| Node (e, btl, btr) -> m bt e
