@@ -1,7 +1,7 @@
 (*
-	Name: 조원희(WonHee Jo)
-	Student ID: 206465
-*)
+ *	Name: 조원희(WonHee Jo)
+ *	Student ID: 206465
+ *)
 
 (* exercise (List-1) *)
 let rec last l =
@@ -171,9 +171,8 @@ type 'a binary_tree =
 let rec tostr bt =
 	match bt with
 	| Empty -> ""
-	| Node (e, btl, btr) ->
-		if btl = Empty && btr = Empty then e
-		else e ^ "(" ^ tostr btl ^ "," ^ tostr btr ^ ")"
+	| Node (e, Empty, Empty) -> e
+	| Node (e, btl, btr) -> e ^ "(" ^ tostr btl ^ "," ^ tostr btr ^ ")"
 ;;
 
 tostr Empty;;
